@@ -7,8 +7,9 @@ Repository focusing on Studying node with focus on Advanced Array Filtering,  Ar
 - Use the customFilterUnique function to filter an array of objects based on a specific property and return only unique objects.
 
 Task 2: Array Chunking
-Create a function called chunkArray that takes an array and a chunk size as arguments. The chunkArray function should divide the array into smaller arrays, each containing elements of the specified chunk size. The function should return an array of arrays.
-Optimize the chunkArray function to minimize memory usage while chunking the array.
+- Create a function called **chunkArray** that takes an array and a chunk size as arguments. The chunkArray function should divide the array into smaller arrays, each containing elements of the specified chunk size. The function should return an array of arrays.
+
+- Optimize the chunkArray function to minimize memory usage while chunking the array.
 
 Task 3: Array Shuffling
 Create a function called customShuffle that takes an array as an argument and returns a new array with its elements randomly shuffled.
