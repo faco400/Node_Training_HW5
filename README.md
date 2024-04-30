@@ -16,8 +16,9 @@ Task 3: Array Shuffling
 - Implement the customShuffle function using an efficient shuffling algorithm to achieve uniform randomness.
 
 Task 4: Array Intersection and Union
-Create a function called getArrayIntersection that takes two arrays as arguments and returns a new array containing the common elements between the two arrays.
-Create a function called getArrayUnion that takes two arrays as arguments and returns a new array containing all unique elements from both arrays, without any duplicates.
+- Create a function called **getArrayIntersection** that takes two arrays as arguments and returns a new array containing the common elements between the two arrays.
+
+- Create a function called **getArrayUnion** that takes two arrays as arguments and returns a new array containing all unique elements from both arrays, without any duplicates.
 
 Task 5: Array Performance Analysis
 Implement a function called measureArrayPerformance that takes a function and an array as arguments. The measureArrayPerformance function should execute the provided function with the given array as input and measure the execution time.
