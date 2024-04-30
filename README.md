@@ -12,8 +12,8 @@ Task 2: Array Chunking
 - Optimize the chunkArray function to minimize memory usage while chunking the array.
 
 Task 3: Array Shuffling
-Create a function called customShuffle that takes an array as an argument and returns a new array with its elements randomly shuffled.
-Implement the customShuffle function using an efficient shuffling algorithm to achieve uniform randomness.
+- Create a function called **customShuffle** that takes an array as an argument and returns a new array with its elements randomly shuffled.
+- Implement the customShuffle function using an efficient shuffling algorithm to achieve uniform randomness.
 
 Task 4: Array Intersection and Union
 Create a function called getArrayIntersection that takes two arrays as arguments and returns a new array containing the common elements between the two arrays.
