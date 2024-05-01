@@ -46,38 +46,46 @@ function customFilterUnique(array) {
   return uniqueElements;
 }
 
-// fixing 8 as chunkSize. Arrays with length not divisible by 4 doesnt work in this example
-function chunkArrayToEight(array) {
-  const chunkSize = 4;
+// fixing 1 as chunkSize.
+// Version 1
+function chunkArray1(array) {
+  const chunkSize = 1;
   const newArray = [];
   let subArray = [];
+  let counter = 0;
+  let endArray = 0;
+    
+  array.forEach(element => {
+    //add element to subarray an increment counter
+    subArray.push(element);
+    counter++;
+    endArray++;
 
-  try {
-    if( Number.isInteger(array.length / chunkSize)){
-      let counter = 0;
-      
-      array.forEach(element => {
-        //add element to subarray an increment counter
-        subArray.push(element);
-        counter++;
-
-        //if division of counter and chunksize equals to 1 then reset counter and go to next chunk
-        if((counter/chunkSize) == 1){
-          counter = 0;
-          newArray.push(subArray);
-          subArray = []
-        }
-
-      });
-
-    } else {
-      throw new Error('Cannot divide array into chunks')
+    //if division of counter and chunksize equals to 1 then reset counter and go to next chunk
+    if(counter == chunkSize || endArray == array.length){
+      counter = 0;
+      newArray.push(subArray);
+      subArray = [];
     }
-  } catch (error) {
-    return console.error(error)
-  }
+
+  });
+
+  // console.log(newArray);
   return newArray
   
+}
+
+// Version 2
+// Like version 1, fixing chunckSize to 1
+function chunkArray2(array) {
+  const chunkSize = 1
+  const chunks = [];
+  let i = 0;
+  while (i < array.length) {
+    chunks.push(array.slice(i, (i += chunkSize)));
+  }
+  // console.log(chunks);
+  return chunks;
 }
 
 //getting intersection of arr1 and array2 of same length
@@ -156,7 +164,8 @@ const array2 = Array.from({ length: array.length }, () => Math.random());
 
 // console.log(measureArrayPerformance(array, customFilterUnique)); // best: 0.15629999991506338 miliseconds
 
-// console.log(measureArrayPerformance(array,chunkArrayToEight)); // best: 0.11290000006556511 miliseconds
+// console.log(measureArrayPerformance(array,chunkArray1)); // best: 7.561699999496341 miliseconds
+// console.log(measureArrayPerformance(array,chunkArray2)); // best:  0.5739999990910292 miliseconds
 
 // console.log(measureArrayPerformance(array,getArrayIntersection)); // best: 0.06790000014007092 miliseconds
 
