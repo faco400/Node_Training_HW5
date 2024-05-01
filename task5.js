@@ -7,8 +7,8 @@ function measureArrayPerformance(array, func){
   return `execution time: ${endTime - startTime} miliseconds`;
 }
 
-//filtering array to return unique numbers
-function customFilterUniqueNumbers(array) {
+//filtering array to return numbers without repetitions
+function customFilterRepetitionNumbers(array) {
   const uniqueElements = [];
   const uniqueMap = new Map();
 
@@ -21,6 +21,28 @@ function customFilterUniqueNumbers(array) {
 
   });
 
+  return uniqueElements;
+}
+
+//custom filter unique with no duplicate values as callback
+function customFilterUnique(array) {
+  const uniqueElements = []; // list of unique elements
+  const hashTable = {}; // table of elements
+  
+  //for each element if not in table, initialize with count, otherwise increment count
+  array.forEach(element => {
+    const key = element;
+    if(!hashTable[key]){
+      hashTable[key] = {element, count: 1};
+    } else {
+      hashTable[key].count++;
+    }
+  });
+
+  for(item in hashTable){
+    if(hashTable[item].count == 1)
+      uniqueElements.push(hashTable[item].element);
+  }
   return uniqueElements;
 }
 
@@ -130,7 +152,9 @@ const array2 = Array.from({ length: array.length }, () => Math.random());
 // console.log(measureArrayPerformance(array,customShuffle)); // best: 0.08880000002682209 miliseconds
 // console.log(measureArrayPerformance(array,customShuffleStd)); // best: 0.11870000045746565 miliseconds
 
-// console.log(measureArrayPerformance(array,customFilterUniqueNumbers)); // best: 0.08799999952316284 miliseconds
+// console.log(measureArrayPerformance(array, customFilterRepetitionNumbers)); // best: 0.08799999952316284 miliseconds
+
+// console.log(measureArrayPerformance(array, customFilterUnique)); // best: 0.15629999991506338 miliseconds
 
 // console.log(measureArrayPerformance(array,chunkArrayToEight)); // best: 0.11290000006556511 miliseconds
 
